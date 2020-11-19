@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">BookCross</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="not_registered">Not registered?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="retrieve">You have to write the e-mail to retrieve the password</string>
+    <string name="reset_email">A reset email is sent to %s</string>
+    <string name="verify">A verification e-mail is sent to %s</string>
+    <string name="user_not_verified">User not verified</string>
+    <string name="user_exists">this e-mail is already used</string>
+    <string name="sign_out">Signed out</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_activity_cross">CrossActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="map_tab">Map</string>
+    <string name="list_tab">List</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="list">List</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="searches">Searches</string>
+    <string name="scan_title">Insert a ISBN code or scan</string>
+    <string name="add">Add</string>
+    <string name="isbn_error">ISBN field can\'t be empty</string>
+    <string name="isbn_length">ISBN must be 13 characters long</string>
+    <string name="book_added">Book added</string>
+    <string name="title_activity_book">BookActivity</string>
+    <string name="download_error">Download error.</string>
+    <string name="error_location">The service is not available.</string>
+    <string name="authors">Authors</string>
+    <string name="categories">Categories</string>
+    <string name="not_exist">This location doesn\'t exist</string>
+    <string name="book_taken">Book crossed!</string>
+    <string name="take_message">Do you want to take this book?</string>
+    <string name="add_error">Please digit an ISBN code of 13 numbers</string>
+    <string name="book_not_exist">This book doesn\'t exist in Google Books</string>
+</resources>

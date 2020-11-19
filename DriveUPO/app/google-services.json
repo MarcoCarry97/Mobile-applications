@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "152937115367",
+    "firebase_url": "https://driveupo.firebaseio.com",
+    "project_id": "driveupo",
+    "storage_bucket": "driveupo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152937115367:android:88ce2aaf5c2d75d255fc42",
+        "android_client_info": {
+          "package_name": "exam.spring.driveupo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152937115367-0kk1msuq99m54ct49pllfjb0sumc5tnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "exam.spring.driveupo",
+            "certificate_hash": "5c97bb78243101bbd9fe257cb8c90a5a287b0a12"
+          }
+        },
+        {
+          "client_id": "152937115367-1l2fq671l3uv5pp25afg191h9uroh9j2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsFFhSEvFZ7Vqieb3BeHLU97HIQpWJzwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152937115367-1l2fq671l3uv5pp25afg191h9uroh9j2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

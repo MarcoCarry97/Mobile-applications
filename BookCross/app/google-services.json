@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "866710572644",
+    "firebase_url": "https://bookcross-4d31d.firebaseio.com",
+    "project_id": "bookcross-4d31d",
+    "storage_bucket": "bookcross-4d31d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866710572644:android:484371def04484aa0f5971",
+        "android_client_info": {
+          "package_name": "exam.spring.bookcross"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866710572644-a1ctr8udcuktjs3amv893re3moe8okld.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "exam.spring.bookcross",
+            "certificate_hash": "5c97bb78243101bbd9fe257cb8c90a5a287b0a12"
+          }
+        },
+        {
+          "client_id": "866710572644-ndcbs4sg1c4b0ara7bkj1r8efd4266tr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9OcMNaybBod3hDSWKyaKDKTrZY5Ru8k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866710572644-ndcbs4sg1c4b0ara7bkj1r8efd4266tr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
