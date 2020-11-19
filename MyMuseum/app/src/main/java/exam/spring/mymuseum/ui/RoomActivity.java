@@ -59,7 +59,7 @@ public class RoomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_museum);
+        setContentView(R.layout.activity_room);
         tools=new Tools(RoomActivity.this);
         app=FirebaseApp.initializeApp(RoomActivity.this);
         store=FirebaseFirestore.getInstance();

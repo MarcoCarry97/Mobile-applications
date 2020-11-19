@@ -11,7 +11,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="error_location">Actually this service is not available</string>
-    <string name="verify">A verification email is sent to %s</string>
+    <string name="verify">%s is signed up!</string>
     <string name="error_invalid_password">Not valid password</string>
     <string name="error_field_required">Field required</string>
     <string name="error_invalid_email">Invalid email</string>
@@ -51,4 +51,8 @@
     <string name="add_error">Please digit a name and a description</string>
     <string name="map">Show map</string>
     <string name="title_activity_maps">Map</string>
+    <string name="error_login">Please compile all fields</string>
+    <string name="rooms">Rooms:</string>
+    <string name="objects">Objects:</string>
+    <string name="logout">Log out</string>
 </resources>

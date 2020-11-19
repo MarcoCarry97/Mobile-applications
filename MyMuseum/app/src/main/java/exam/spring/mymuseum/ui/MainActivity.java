@@ -1,7 +1,9 @@
 package exam.spring.mymuseum.ui;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Geocoder;
 import android.os.Bundle;
 
@@ -54,12 +56,14 @@ public class MainActivity extends AppCompatActivity {
     private Tools tools;
     private FirebaseAuth auth;
     private FirebaseUser user;
+    private SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        shared=getPreferences(Context.MODE_PRIVATE);
         tools=new Tools(MainActivity.this);
         setSupportActionBar(toolbar);
         museums=findViewById(R.id.list);
@@ -272,6 +276,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(MainActivity.this,MapsActivity.class);
             intent.putParcelableArrayListExtra("museums",museumList);
             startActivity(intent);
+        }
+        else if(item.getItemId()==R.id.logout)
+        {
+            Intent result=new Intent();
+            setResult(RESULT_OK,result);
+            finish();
         }
         return true;
     }

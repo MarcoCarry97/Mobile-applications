@@ -19,6 +19,7 @@ import java.util.List;
 
 public class Tools
 {
+    public static final int LOGOUT = 1;
     private Context context;
 
     public Tools(Context context)

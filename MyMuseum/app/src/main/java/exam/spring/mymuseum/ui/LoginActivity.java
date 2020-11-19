@@ -29,6 +29,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,15 +64,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Tools tools;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);// Set up the login form.
+        remember=findViewById(R.id.remember);
         shared=getPreferences(Context.MODE_PRIVATE);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        tools=new Tools(LoginActivity.this);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener()
         {
@@ -104,7 +108,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view)
             {
-                attemptLogin();
+                try {
+                    attemptLogin();
+
+                }
+                catch (Exception e)
+                {
+                    showProgress(false);
+                    tools.toast(R.string.error_login);
+                    Log.e("ERROR",e.getMessage());
+                }
             }
         });
 
@@ -116,7 +129,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View v)
             {
-                attemptCreate();
+
+                try {
+                    attemptCreate();
+                }
+                catch (Exception e)
+                {
+                    tools.toast(R.string.error_login);
+                    Log.e("ERROR",e.getMessage());
+                }
             }
         });
     }
@@ -128,11 +149,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Check if user is signed in (non-null) and update UI accordingly.
         showProgress(false);
         FirebaseUser currentUser = auth.getCurrentUser();
-        boolean retain=shared.getBoolean("retain",false);
+        boolean retain=shared.contains("email") && shared.contains("password");
         Log.e("RETAIN","OK");
-        //String email=shared.getString(getString(R.string.email),null);
-        //String pass=shared.getString(getString(R.string.pass),null);
-        //doLogin(email,pass);
+        if(retain)
+        {
+            String email=shared.getString("email","");
+            String pass=shared.getString("password","");
+            doLogin(email,pass);
+        }
     }
 
     private void forgot(String email)
@@ -269,8 +293,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     {
                             if (task.isSuccessful())
                             {
+                                if(remember.isChecked())
+                                {
+                                    SharedPreferences.Editor editor=shared.edit();
+                                    editor.putString("email",email);
+                                    editor.putString("password",password);
+                                    editor.commit();
+                                }
+                                else shared.edit().clear().commit();
                                 Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                                startActivity(intent);
+                                startActivityForResult(intent,Tools.LOGOUT);
                             }
 
                     }
@@ -336,7 +368,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isEmailValid(String email)
     {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return email.matches("[A-z0-9\\.\\+_-]+@[A-z0-9\\._-]+\\.[A-z]{2,6}");
     }
 
     private boolean isPasswordValid(String password)
@@ -439,6 +471,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Tools.LOGOUT && resultCode == RESULT_OK) {
+            SharedPreferences.Editor editor = shared.edit();
+            editor.remove("email");
+            editor.remove("password");
+            editor.commit();
+            editor.apply();
+            Log.e("REMOVED", "REMOVED");
+        }
     }
 
 }
